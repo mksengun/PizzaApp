@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PizzaApp</string>
+    <string name="dialog_request_location_title">Hey, I needed that!</string>
+    <string name="dialog_request_location_message">You can try again if you want</string>
 </resources>
