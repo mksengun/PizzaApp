@@ -45,6 +45,9 @@ class PizzaDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.getPizzaPlace()
+        viewModel.getFriends()
+
         viewModel.network.observe(viewLifecycleOwner, Observer {
             if (it == PizzaDetailViewModel.Event.ERROR) {
                 Snackbar.make(view, R.string.dialog_error_something_went_wrong, Snackbar.LENGTH_LONG).show()
@@ -60,11 +63,6 @@ class PizzaDetailFragment : Fragment() {
 
         viewModel.pizzaPlace.observe(viewLifecycleOwner, Observer {
 
-            var openingHours = ""
-            for (day in it.openingHours) {
-                openingHours += "$day\n"
-            }
-
             toolbar.title = it.name
 
             Picasso.with(view.context)
@@ -76,7 +74,7 @@ class PizzaDetailFragment : Fragment() {
             view.findViewById<TextView>(R.id.tv_formatted_address).text = it.formattedAddress
             view.findViewById<TextView>(R.id.tv_phone).text = it.phone
             view.findViewById<TextView>(R.id.tv_website).text = it.website
-            view.findViewById<TextView>(R.id.tv_openning_hours).text = openingHours
+            view.findViewById<TextView>(R.id.tv_openning_hours).text = viewModel.getOpeningHours()
         })
 
         viewModel.friends.observe(viewLifecycleOwner, Observer {
@@ -90,8 +88,6 @@ class PizzaDetailFragment : Fragment() {
                 it.random().name,
                 it.random().id
             )
-
-
         })
     }
 }

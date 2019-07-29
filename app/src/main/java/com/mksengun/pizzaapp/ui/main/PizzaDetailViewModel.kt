@@ -24,12 +24,7 @@ class PizzaDetailViewModel(private val pizzaPlaceId: String) : ViewModel(), Koin
 
     private val repository: PizzaRepository by inject()
 
-    init {
-        getPizzaPlace()
-        getFriends()
-    }
-
-    private fun getPizzaPlace() {
+    fun getPizzaPlace() {
         repository.getPizzaPlace(pizzaPlaceId, object : PizzaRepository.OnDataCallback {
             override fun onReady(data: Any) {
                 pizzaPlace.value = data as Pizza
@@ -42,7 +37,7 @@ class PizzaDetailViewModel(private val pizzaPlaceId: String) : ViewModel(), Koin
         })
     }
 
-    private fun getFriends() {
+    fun getFriends() {
         repository.getFriends(object : PizzaRepository.OnDataCallback {
             override fun onReady(data: Any) {
                 friends.value = data as List<Friend>
@@ -53,6 +48,14 @@ class PizzaDetailViewModel(private val pizzaPlaceId: String) : ViewModel(), Koin
                 _network.value = Event.ERROR
             }
         })
+    }
+
+    fun getOpeningHours() : String {
+        var openingHours = ""
+        for (day in pizzaPlace.value!!.openingHours) {
+            openingHours += "$day\n"
+        }
+        return openingHours
     }
 
 }
