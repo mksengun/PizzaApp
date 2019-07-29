@@ -8,8 +8,8 @@ data class Pizza(
     val formattedAddress: String,
     val city: String,
     val openingHours: List<String>,
-    val longitude: Long,
-    val latitude: Long,
+    val longitude: Double,
+    val latitude: Double,
     val images: List<Image>,
     val friendIds: List<String>
 )

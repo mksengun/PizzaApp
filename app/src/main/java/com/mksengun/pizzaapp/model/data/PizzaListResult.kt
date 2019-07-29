@@ -11,6 +11,6 @@ data class Meta(
 )
 
 data class ListOfPlaces(
-    val list: List<Pizza>
+    val places: List<Pizza>
 )
 
