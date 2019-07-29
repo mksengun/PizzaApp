@@ -5,17 +5,17 @@ import com.mksengun.pizzaapp.model.data.Pizza
 import com.mksengun.pizzaapp.model.data.PizzaListResult
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Path
 
 interface PizzaApi {
 
     @GET("pizzaplaces")
     fun getListOfPizzaPlaces(): Call<PizzaListResult>
 
-    @GET("pizzaplaces")
-    fun getDetailOfPizza(@Query("id") id: String): Call<Pizza>
+    @GET("pizzaplaces/{id}")
+    fun getDetailOfPizza(@Path("id") id: String): Call<Pizza>
 
     @GET("friends")
-    fun getListOfFriends(@Query("id") id: String): Call<List<Friend>>
+    fun getListOfFriends(): Call<List<Friend>>
 
 }
