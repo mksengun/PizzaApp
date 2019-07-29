@@ -16,4 +16,13 @@
     <dimen name="padding_xl">64dp</dimen>
 
     <dimen name="elevation_m">8dp</dimen>
+
+    <dimen name="size_xxxs">1dp</dimen>
+    <dimen name="size_xxs">2dp</dimen>
+    <dimen name="size_xs">4dp</dimen>
+    <dimen name="size_s">8dp</dimen>
+    <dimen name="size_m">16dp</dimen>
+    <dimen name="size_l">32dp</dimen>
+    <dimen name="size_xl">64dp</dimen>
+
 </resources>
