@@ -20,7 +20,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.mksengun.pizzaapp.R
 import org.koin.android.viewmodel.ext.android.viewModel
 
-
 class PizzaMapFragment : Fragment() {
 
     companion object {
@@ -96,6 +95,7 @@ class PizzaMapFragment : Fragment() {
     private fun navigateToPizzaDetailFragment(id: String) {
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.container, PizzaDetailFragment.newInstance(id))
+            .addToBackStack(PizzaDetailFragment.javaClass.simpleName)
             .commitAllowingStateLoss()
     }
 

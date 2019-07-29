@@ -64,8 +64,7 @@ class PizzaDetailFragment : Fragment() {
 
             Picasso.with(view.context)
                 .load(it.images[0].url)
-                .placeholder(R.color.material_grey_600)
-                .error(R.color.colorPrimary)
+                .placeholder(R.color.colorPrimary)
                 .into(view.findViewById<ImageView>(R.id.iv_main))
 
             view.findViewById<TextView>(R.id.tv_city).text = it.city

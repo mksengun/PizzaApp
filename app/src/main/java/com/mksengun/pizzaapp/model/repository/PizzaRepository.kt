@@ -23,8 +23,23 @@ class PizzaRepository(private val apiService: PizzaApi) {
         })
     }
 
+    fun getPizzaPlace(id: String, onDataCallback: OnDataCallback) {
+        apiService.getDetailOfPizza(id).enqueue(object : retrofit2.Callback<Pizza> {
+            override fun onResponse(call: Call<Pizza>, response: Response<Pizza>) {
+                if (response.isSuccessful)
+                    onDataCallback.onReady((response.body() as Pizza))
+                else
+                    onDataCallback.onFail()
+            }
+
+            override fun onFailure(call: Call<Pizza>, t: Throwable) {
+                onDataCallback.onFail()
+            }
+        })
+    }
+
     interface OnDataCallback {
-        fun onReady(data: List<Pizza>)
+        fun onReady(data: Any)
         fun onFail()
     }
 

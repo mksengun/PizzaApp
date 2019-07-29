@@ -28,8 +28,8 @@ class PizzaMapViewModel : ViewModel(), KoinComponent {
 
     fun getPizzaPlaces() {
         repository.getPizzaPlaces(object : PizzaRepository.OnDataCallback {
-            override fun onReady(data: List<Pizza>) {
-                listOfPizzaPlaces.value = data
+            override fun onReady(data: Any) {
+                listOfPizzaPlaces.value = data as List<Pizza>
                 _network.value = Event.SUCCESS
             }
 
