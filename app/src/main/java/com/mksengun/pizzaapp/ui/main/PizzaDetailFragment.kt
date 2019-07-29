@@ -60,6 +60,11 @@ class PizzaDetailFragment : Fragment() {
 
         viewModel.pizzaPlace.observe(viewLifecycleOwner, Observer {
 
+            var openingHours = ""
+            for (day in it.openingHours) {
+                openingHours += "$day\n"
+            }
+
             toolbar.title = it.name
 
             Picasso.with(view.context)
@@ -71,6 +76,7 @@ class PizzaDetailFragment : Fragment() {
             view.findViewById<TextView>(R.id.tv_formatted_address).text = it.formattedAddress
             view.findViewById<TextView>(R.id.tv_phone).text = it.phone
             view.findViewById<TextView>(R.id.tv_website).text = it.website
+            view.findViewById<TextView>(R.id.tv_openning_hours).text = openingHours
 
         })
 

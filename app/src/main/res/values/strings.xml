@@ -3,4 +3,5 @@
     <string name="dialog_request_location_title">Do not even dare !! </string>
     <string name="dialog_request_location_message">I will give you a chance to try again, oke?</string>
     <string name="dialog_error_something_went_wrong">Something is wrong man</string>
+    <string name="button_book_a_table_label">BOOK A TABLE</string>
 </resources>

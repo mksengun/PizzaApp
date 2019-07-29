@@ -27,7 +27,7 @@ class PizzaDetailViewModel(private val pizzaPlaceId: String) : ViewModel(), Koin
         getPizzaPlace()
     }
 
-    fun getPizzaPlace() {
+    private fun getPizzaPlace() {
         repository.getPizzaPlace(pizzaPlaceId, object : PizzaRepository.OnDataCallback {
             override fun onReady(data: Any) {
                 pizzaPlace.value = data as Pizza
