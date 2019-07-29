@@ -66,7 +66,7 @@ class PizzaDetailViewModelTest : AutoCloseKoinTest() {
 
         }
 
-        expectThat(viewModel.getOpenningHours()).isNotBlank()
+        expectThat(viewModel.getOpeningHours()).isNotBlank()
     }
 
     @Test
@@ -89,7 +89,7 @@ class PizzaDetailViewModelTest : AutoCloseKoinTest() {
 
         }
 
-        expectThat(viewModel.getOpenningHours()).isEqualTo("Monday 01:00\nTuesday 02:00\n")
+        expectThat(viewModel.getOpeningHours()).isEqualTo("Monday 01:00\nTuesday 02:00\n")
     }
 
 
