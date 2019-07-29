@@ -4,4 +4,5 @@
     <string name="dialog_request_location_message">I will give you a chance to try again, oke?</string>
     <string name="dialog_error_something_went_wrong">Something is wrong man</string>
     <string name="button_book_a_table_label">BOOK A TABLE</string>
+    <string name="text_more_friends_liked_this_place"> %s and %s other friends like this place.</string>
 </resources>

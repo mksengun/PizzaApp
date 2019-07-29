@@ -1,6 +1,7 @@
 package com.mksengun.pizzaapp.model.repository
 
 import com.mksengun.pizzaapp.model.api.PizzaApi
+import com.mksengun.pizzaapp.model.data.Friend
 import com.mksengun.pizzaapp.model.data.Pizza
 import com.mksengun.pizzaapp.model.data.PizzaListResult
 import retrofit2.Call
@@ -33,6 +34,21 @@ class PizzaRepository(private val apiService: PizzaApi) {
             }
 
             override fun onFailure(call: Call<Pizza>, t: Throwable) {
+                onDataCallback.onFail()
+            }
+        })
+    }
+
+    fun getFriends(onDataCallback: OnDataCallback) {
+        apiService.getListOfFriends().enqueue(object : retrofit2.Callback<List<Friend>> {
+            override fun onResponse(call: Call<List<Friend>>, response: Response<List<Friend>>) {
+                if (response.isSuccessful)
+                    onDataCallback.onReady((response.body() as List<Friend>))
+                else
+                    onDataCallback.onFail()
+            }
+
+            override fun onFailure(call: Call<List<Friend>>, t: Throwable) {
                 onDataCallback.onFail()
             }
         })

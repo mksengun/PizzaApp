@@ -77,8 +77,21 @@ class PizzaDetailFragment : Fragment() {
             view.findViewById<TextView>(R.id.tv_phone).text = it.phone
             view.findViewById<TextView>(R.id.tv_website).text = it.website
             view.findViewById<TextView>(R.id.tv_openning_hours).text = openingHours
-
         })
 
+        viewModel.friends.observe(viewLifecycleOwner, Observer {
+            Picasso.with(view.context)
+                .load(it.random().avatarUrl)
+                .placeholder(R.color.colorPrimary)
+                .into(view.findViewById<ImageView>(R.id.iv_avatar))
+
+            view.findViewById<TextView>(R.id.tv_friends).text = requireContext().getString(
+                R.string.text_more_friends_liked_this_place,
+                it.random().name,
+                it.random().id
+            )
+
+
+        })
     }
 }
